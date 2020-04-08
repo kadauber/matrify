@@ -1,0 +1,7 @@
+{
+  "name": "Matrify",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
