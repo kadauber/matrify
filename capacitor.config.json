@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "Matrify",
+  "appId": "matrify.dauber.kim",
+  "appName": "matrify",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
