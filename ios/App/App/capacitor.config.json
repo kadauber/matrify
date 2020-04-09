@@ -1,0 +1,8 @@
+{
+  "appId": "matrify.dauber.kim",
+  "appName": "matrify",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
