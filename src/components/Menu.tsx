@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp, checkmarkCircleOutline, checkmarkCircleSharp, checkmarkDoneCircleOutline, checkmarkDoneCircleSharp, listCircleOutline, listCircleSharp, listCircle, listOutline, listSharp, gridOutline, gridSharp } from 'ionicons/icons';
 import './Menu.css';
 
 interface MenuProps extends RouteComponentProps {
@@ -27,44 +27,32 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Inbox',
-    url: '/page/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    title: 'Matrix',
+    url: '/page/Matrix',
+    iosIcon: gridOutline,
+    mdIcon: gridSharp
   },
   {
-    title: 'Outbox',
-    url: '/page/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp
+    title: 'Tasks',
+    url: '/page/Tasks',
+    iosIcon: listOutline,
+    mdIcon: listSharp
   },
   {
-    title: 'Favorites',
-    url: '/page/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
-  },
-  {
-    title: 'Archived',
-    url: '/page/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp
+    title: 'Done',
+    url: '/page/Done',
+    iosIcon: checkmarkDoneCircleOutline,
+    mdIcon: checkmarkDoneCircleSharp
   },
   {
     title: 'Trash',
     url: '/page/Trash',
     iosIcon: trashOutline,
     mdIcon: trashSharp
-  },
-  {
-    title: 'Spam',
-    url: '/page/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
   }
 ];
 
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders', 'School'];
 
 const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
 
@@ -72,8 +60,8 @@ const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonListHeader>Matrify</IonListHeader>
+          <IonNote>Welcome, Kimberly</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
