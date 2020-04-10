@@ -1,22 +1,8 @@
-import {
-  IonContent,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonMenu,
-  IonMenuToggle,
-  IonNote,
-} from '@ionic/react';
+import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote } from '@ionic/react';
+import { bookmarkOutline, checkmarkDoneCircleOutline, checkmarkDoneCircleSharp, gridOutline, gridSharp, listOutline, listSharp, trashOutline, trashSharp } from 'ionicons/icons';
 import React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp, checkmarkCircleOutline, checkmarkCircleSharp, checkmarkDoneCircleOutline, checkmarkDoneCircleSharp, listCircleOutline, listCircleSharp, listCircle, listOutline, listSharp, gridOutline, gridSharp } from 'ionicons/icons';
+import { RouteComponentProps, useLocation, withRouter } from 'react-router-dom';
 import './Menu.css';
-
-interface MenuProps extends RouteComponentProps {
-  selectedPage: string;
-}
 
 interface AppPage {
   url: string;
@@ -54,7 +40,9 @@ const appPages: AppPage[] = [
 
 const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders', 'School'];
 
-const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
+const Menu: React.FunctionComponent<RouteComponentProps> = () => {
+
+  const location = useLocation();
 
   return (
     <IonMenu contentId="main" type="overlay">
@@ -65,7 +53,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={selectedPage === appPage.title ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
                   <IonIcon slot="start" icon={appPage.iosIcon} />
                   <IonLabel>{appPage.title}</IonLabel>
                 </IonItem>
